@@ -1,0 +1,8 @@
+DEVICE_PATH := device/tecno/TECNO-T1101
+include device/transsion/mt6789-common/BoardConfigCommon.mk
+
+TARGET_OTA_ASSERT_DEVICE := TECNO-T1101
+override TW_DEFAULT_BRIGHTNESS := 2047
+override TW_MAX_BRIGHTNESS := 4095
+TW_DEVICE_VERSION := T1101_by_yutaka
+BOARD_SUPER_PARTITION_SIZE := 9663676416
