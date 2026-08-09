@@ -1,4 +1,4 @@
-# Android device tree for TECNO TECNO T1101 (TECNO-T1101)
+# Android device tree for TECNO TECNO T1101 (T1101)
 
 ```
 #
