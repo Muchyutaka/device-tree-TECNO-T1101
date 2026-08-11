@@ -6,6 +6,9 @@
 #
 
 LOCAL_PATH := device/tecno/T1101
+# Enable Virtual A/B OTA
+ENABLE_VIRTUAL_AB := true
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
