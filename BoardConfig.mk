@@ -1,6 +1,7 @@
 DEVICE_PATH := device/tecno/T1101
 include device/transsion/mt6789-common/BoardConfigCommon.mk
 
+TARGET_BOARD_PLATFORM := mt8781
 TARGET_OTA_ASSERT_DEVICE := T1101
 override TW_DEFAULT_BRIGHTNESS := 2047
 override TW_MAX_BRIGHTNESS := 4095
