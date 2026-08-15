@@ -5,7 +5,7 @@ Basic   | Spec Sheet
 CPU     | Octa-core (2x2.2 GHz Cortex-A76 & 6x2.0 GHz Cortex-A55)
 Chipset | MediaTek Helio G99 (MT8781)
 GPU     | Mali-G57 MC2
-Memory  | 4/8 GB RAM
+Memory  | 8 GB RAM
 Shipped Android Version | 14
 Storage | 128/256 GB
 Display | 1200 x 1920 pixels, 11.0 inches
