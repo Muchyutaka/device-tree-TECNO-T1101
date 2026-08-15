@@ -1,10 +1,13 @@
-# Android device tree for TECNO TECNO T1101 (T1101)
+Tecno Megapad 11 T1101 Device tree
 
-```
-#
-# Copyright (C) 2026 The Android Open Source Project
-# Copyright (C) 2026 SebaUbuntu's TWRP device tree generator
-#
-# SPDX-License-Identifier: Apache-2.0
-#
-```
+Basic   | Spec Sheet
+-------:|:-------------------------
+CPU     | Octa-core (2x2.2 GHz Cortex-A76 & 6x2.0 GHz Cortex-A55)
+Chipset | MediaTek Helio G99 (MT8781)
+GPU     | Mali-G57 MC2
+Memory  | 4/8 GB RAM
+Shipped Android Version | 14
+Storage | 128/256 GB
+Display | 1200 x 1920 pixels, 11.0 inches
+
+<img width="1920" height="1050" alt="1000027022" src="https://github.com/user-attachments/assets/511643d9-b0fd-4349-b288-4f750b2966b1" />
