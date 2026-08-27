@@ -1,0 +1,4 @@
+on fs
+    insmod /lib/modules/pinctrl-mt6789.ko
+    insmod /lib/modules/mediatek-drm.ko
+    insmod /lib/modules/jadard_touch.ko
