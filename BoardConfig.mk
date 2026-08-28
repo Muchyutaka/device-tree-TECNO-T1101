@@ -1,4 +1,3 @@
-#
 # SPDX-FileCopyrightText: The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -83,7 +82,9 @@ TARGET_BOARD_PLATFORM := mt6789
 
 # Recovery & Vendor Boot Flags
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
-BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+# Disabled to prevent build system from skipping target root generation
+# BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+
 TARGET_NO_RECOVERY := false
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
@@ -91,6 +92,9 @@ TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 BOARD_USERIMAGES_FILE_SYSTEM_TYPE := erofs
 TARGET_USERIMAGES_USE_EROFS := true
+
+# Explicit recovery root path output
+TARGET_RECOVERY_ROOT_OUT := $(PRODUCT_OUT)/recovery/root
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -113,6 +117,10 @@ TW_EXTRA_LANGUAGES := true
 TW_LOAD_VENDOR_BOOT_MODULES := true
 TW_HAS_MTP := true
 TW_MAX_BRIGHTNESS := 255
+RECOVERY_SDCARD_ON_DATA := true
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_LIBRESETPROP := true
+TW_INCLUDE_REPACKTOOLS := true
 
 # VINTF
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
