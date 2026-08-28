@@ -4,7 +4,7 @@
 
 DEVICE_PATH := device/tecno/T1101
 
-# A/B
+# A/B Partition Configuration
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
     boot \
@@ -17,7 +17,7 @@ AB_OTA_PARTITIONS += \
     system \
     odm_dlkm
 
-# Architecture
+# Target Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
@@ -46,14 +46,14 @@ BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 ALLOW_MISSING_DEPENDENCIES := true
 
-# Kernel
+# Kernel Configuration
 BOARD_BOOT_HEADER_VERSION := 4
 BOARD_KERNEL_BASE := 0x3fff8000
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_IMAGE_NAME := Image
 
-# Kernel - prebuilt
+# Kernel - Prebuilts
 TARGET_FORCE_PREBUILT_KERNEL := true
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
 TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
@@ -62,7 +62,7 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 BOARD_MKBOOTIMG_ARGS += --pagesize $(BOARD_KERNEL_PAGESIZE)
 BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
 
-# Partitions
+# Partitions & Dynamic Groups
 BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
@@ -80,12 +80,15 @@ BOARD_TECNO_DYNAMIC_PARTITIONS_SIZE := 9122611200
 # Platform
 TARGET_BOARD_PLATFORM := mt6789
 
-# Recovery & Vendor Boot Flags
+# Recovery & Vendor Boot Flags (Virtual A/B Configuration)
+TARGET_NO_RECOVERY := false
+BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := true
-# Disabled to prevent build system from skipping target root generation
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
+BOARD_USES_RECOVERY_AS_BOOT := false
+# Disabled to prevent skipping target recovery root generation
 # BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 
-TARGET_NO_RECOVERY := false
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -93,10 +96,10 @@ TARGET_USERIMAGES_USE_F2FS := true
 BOARD_USERIMAGES_FILE_SYSTEM_TYPE := erofs
 TARGET_USERIMAGES_USE_EROFS := true
 
-# Explicit recovery root path output
+# Explicit recovery root output directory
 TARGET_RECOVERY_ROOT_OUT := $(PRODUCT_OUT)/recovery/root
 
-# Verified Boot
+# Verified Boot (AVB)
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 BOARD_AVB_VENDOR_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
@@ -126,5 +129,5 @@ TW_INCLUDE_REPACKTOOLS := true
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Kernel Modules
-BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard device/tecno/T1101/recovery/root/lib/modules/*.ko)
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard $(DEVICE_PATH)/recovery/root/lib/modules/*.ko)
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(BOARD_VENDOR_RAMDISK_KERNEL_MODULES)
