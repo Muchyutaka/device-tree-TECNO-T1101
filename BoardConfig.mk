@@ -75,14 +75,7 @@ BOARD_TECNO_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     product \
     vendor \
     vendor_dlkm \
-    odm_dlkm \
-    tr_mi \
-    tr_theme \
-    tr_region \
-    tr_company \
-    tr_carrier \
-    tr_product \
-    tr_preload
+    odm_dlkm 
 BOARD_TECNO_DYNAMIC_PARTITIONS_SIZE := 9122611200
 
 # Platform
