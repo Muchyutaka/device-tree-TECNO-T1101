@@ -4,6 +4,9 @@
 
 DEVICE_PATH := device/tecno/T1101
 
+# Force-create intermediate root output directory to prevent rsync failures
+$(shell mkdir -p $(PRODUCT_OUT)/root)
+
 # A/B Partition Configuration
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS += \
