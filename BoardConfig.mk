@@ -4,8 +4,8 @@
 
 DEVICE_PATH := device/tecno/T1101
 
-# Force-create intermediate root output directory to prevent rsync failures
-$(shell mkdir -p $(PRODUCT_OUT)/root)
+# Hardcoded intermediate root output directory creation
+$(shell mkdir -p out/target/product/T1101/root)
 
 # A/B Partition Configuration
 AB_OTA_UPDATER := true
@@ -99,7 +99,7 @@ BOARD_USERIMAGES_FILE_SYSTEM_TYPE := erofs
 TARGET_USERIMAGES_USE_EROFS := true
 
 # Explicit recovery root output directory
-TARGET_RECOVERY_ROOT_OUT := $(PRODUCT_OUT)/recovery/root
+TARGET_RECOVERY_ROOT_OUT := out/target/product/T1101/recovery/root
 
 # Verified Boot (AVB)
 BOARD_AVB_ENABLE := true
