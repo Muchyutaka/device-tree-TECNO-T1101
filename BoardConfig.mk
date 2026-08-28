@@ -4,8 +4,8 @@
 
 DEVICE_PATH := device/tecno/T1101
 
-# Hardcoded intermediate root output directory creation
-$(shell mkdir -p out/target/product/T1101/root)
+# Hardcoded intermediate root & recovery subdirectories creation
+$(shell mkdir -p out/target/product/T1101/root out/target/product/T1101/recovery/root/sbin out/target/product/T1101/recovery/root/system/etc out/target/product/T1101/recovery/root/etc)
 
 # A/B Partition Configuration
 AB_OTA_UPDATER := true
