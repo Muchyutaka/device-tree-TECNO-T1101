@@ -1,4 +1,4 @@
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/twrp_T1101.mk
 COMMON_LUNCH_CHOICES := \
-    fox_T1101-eng
+twrp_T1101-eng
