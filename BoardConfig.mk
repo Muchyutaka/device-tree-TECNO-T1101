@@ -132,9 +132,6 @@ TW_MAX_BRIGHTNESS := 255
 # VINTF
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
-# Inherit the proprietary files
-include vendor/tecno/T1101/BoardConfigVendor.mk
-
 # Kernel Modules
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(wildcard device/tecno/T1101/recovery/root/lib/modules/*.ko)
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(BOARD_VENDOR_RAMDISK_KERNEL_MODULES)
