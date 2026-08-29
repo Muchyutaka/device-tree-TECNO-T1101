@@ -1,0 +1,19 @@
+name: Transfer firmware dump to git
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  transfer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: mkdir -p dump && gh release download 1 -R "$GITHUB_REPOSITORY" -D dump -p vendor_boot.img -p boot.img
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          git config user.name "fw-transfer-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git checkout -b fw-dump
+          git add dump
+          git commit -m "firmware dump 260410V1046"
+          git push origin fw-dump
